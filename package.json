@@ -16,7 +16,6 @@
     "typescript",
     "elk"
   ],
-  "author": "Beace",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
