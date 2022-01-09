@@ -7,26 +7,26 @@ const app = express();
 const PORT: number = app.get("port") || 3000;
 const ENV: string = app.get("env");
 
-log4js.configure({
-  appenders: {
-    console: { type: "console" },
-    // file: { type: "file", filename: "all-the-logs.log" },
-    // https://github.com/Aigent/log4js-logstash-tcp
-    elk_learn: {
-      type: "log4js-logstash-tcp",
-      host: "127.0.0.1",
-      port: 5000
-    }
-  },
-  categories: {
-    default: { appenders: ["elk_learn"], level: "debug" }
-  }
-});
+// log4js.configure({
+//   appenders: {
+//     console: { type: "console" },
+//     // file: { type: "file", filename: "all-the-logs.log" },
+//     // https://github.com/Aigent/log4js-logstash-tcp
+//     elk_learn: {
+//       type: "log4js-logstash-tcp",
+//       host: "127.0.0.1",
+//       port: 5000
+//     }
+//   },
+//   categories: {
+//     default: { appenders: ["elk_learn"], level: "debug" }
+//   }
+// });
 
 const logger = log4js.getLogger("default");
 logger.level = "debug";
 
-app.get("/DAd", homeController.index);
+app.get("/index", homeController.index);
 
 const server = app.listen(PORT, () => {
   logger.info("App is running at http://localhost:%d in %s mode", PORT, ENV);
