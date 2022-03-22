@@ -26,13 +26,13 @@ log4js.configure({
 const logger = log4js.getLogger("default");
 logger.level = "debug";
 
-app.get("/index", homeController.index);
+app.get("/index",homeController.index);
 app.get("/json", (req, res) => {
   logger.error("{code: 0, data: 1000}");
   res.json("Oh data error");
 });
 const server = app.listen(PORT, () => {
-  logger.info("App is running at http://localhost:%d in %s mode", PORT, ENV);
+  logger.info("App is running at http://localhost:%d in %s mode",{desc:'其他描述'},PORT, ENV,);
   logger.info("Press CTRL-C to stop\n");
 });
 
